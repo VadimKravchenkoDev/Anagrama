@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         AnagramViewModel model = new ViewModelProvider(this).get(AnagramViewModel.class);
-        model.getUiState().observe(this, anagramData -> {
+        model.getAnagram().observe(this, anagramData -> {
 
         });
     }
