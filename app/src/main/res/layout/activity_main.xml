@@ -10,22 +10,27 @@
 
     <TextView
         android:id="@+id/outputResult"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text=""
+        android:inputType="textMultiLine"
+        android:maxLines="5"
+        android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="@+id/filterText"
         app:layout_constraintStart_toStartOf="@+id/filterText"
         app:layout_constraintTop_toBottomOf="@+id/filterText" />
 
     <EditText
         android:id="@+id/inputText"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="240dp"
         android:ems="10"
         android:hint="Enter text for anagram"
-        android:inputType="text"
+        android:inputType="textMultiLine"
+        android:maxLines="5"
+        android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,12 +38,13 @@
 
     <EditText
         android:id="@+id/filterText"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:ems="10"
         android:hint="Enter symbols to ignore"
-        android:inputType="text"
+        android:inputType="textMultiLine"
+        android:maxLines="6"
+        android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="@+id/inputText"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/inputText"
