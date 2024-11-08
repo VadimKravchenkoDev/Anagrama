@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        AnagramViewModel model = new ViewModelProvider(this).get(AnagramViewModel.class);
+        model.getUiState().observe(this, anagramData -> {
 
+        });
     }
 }
