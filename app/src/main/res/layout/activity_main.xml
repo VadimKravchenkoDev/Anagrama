@@ -6,16 +6,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#7C7A7B">
+    android:background="#CAC9CA">
 
     <TextView
         android:id="@+id/outputResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/filterText"
+        app:layout_constraintStart_toStartOf="@+id/filterText"
+        app:layout_constraintTop_toBottomOf="@+id/filterText" />
+
+    <EditText
+        android:id="@+id/inputText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:ems="10"
+        android:hint="Enter text for anagram"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/filterText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Enter symbols to ignore"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/inputText"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/inputText"
+        app:layout_constraintTop_toBottomOf="@+id/inputText" />
+
+    <Button
+        android:id="@+id/ConvertButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Convert"
+        app:layout_constraintEnd_toEndOf="@+id/filterText"
+        app:layout_constraintStart_toStartOf="@+id/filterText"
+        app:layout_constraintTop_toBottomOf="@+id/outputResult" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
