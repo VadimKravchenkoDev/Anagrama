@@ -13,10 +13,15 @@ public class AnagramViewModel extends ViewModel {
     }
 
     public void makeAnagram(String inputSymbols, String filterSymbols) {
+        String result = "";
         if (inputSymbols.isEmpty() || filterSymbols.isEmpty()) {
             Anagram.setValue("Заповніть поля");
         } else {
-            Anagram.setValue(String.format("Результат: %s%s", inputSymbols, filterSymbols));
+
+            for (int i = inputSymbols.length()-1; i >= 0; i--) {
+                result += inputSymbols.charAt(i);
+            }
+            Anagram.setValue(result);
         }
     }
 }

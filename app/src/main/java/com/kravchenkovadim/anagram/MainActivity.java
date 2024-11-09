@@ -15,6 +15,7 @@ import com.kravchenkovadim.anagram.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private AnagramViewModel anagramViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
         });
         anagramViewModel = new ViewModelProvider(this).get(AnagramViewModel.class);
 
-        binding.ConvertButton.setOnClickListener(v ->{
-
+        binding.ConvertButton.setOnClickListener(v -> {
             String inputSymbols = binding.inputText.getText().toString();
             String filterSymbols = binding.filterText.getText().toString();
             anagramViewModel.makeAnagram(inputSymbols, filterSymbols);
