@@ -11,15 +11,16 @@ public class AnagramViewModel extends ViewModel {
     public LiveData<String> getAnagram() {
         return Anagram;
     }
-    StringUtil reverse = new StringUtil();
+
     public void makeAnagram(String inputSymbols, String filterSymbols) {
-        StringBuilder result = new StringBuilder();
+        StringUtil stringUtil = new StringUtil();
+        StringBuilder result;
         if (inputSymbols.isEmpty() || filterSymbols.isEmpty()) {
             Anagram.setValue("Заповніть поля");
         } else {
 
-            result = reverse.doReverse(inputSymbols);
-            
+            result = stringUtil.doReverse(inputSymbols, filterSymbols);
+
 
             Anagram.setValue(result.toString());
         }
