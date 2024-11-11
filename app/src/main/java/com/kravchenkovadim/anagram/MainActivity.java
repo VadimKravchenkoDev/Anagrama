@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         anagramViewModel = new ViewModelProvider(this).get(AnagramViewModel.class);
-
         binding.ConvertButton.setOnClickListener(v -> {
             String inputSymbols = binding.inputText.getText().toString();
             String filterSymbols = binding.filterText.getText().toString();

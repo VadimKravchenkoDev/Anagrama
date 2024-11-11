@@ -11,17 +11,17 @@ public class AnagramViewModel extends ViewModel {
     public LiveData<String> getAnagram() {
         return Anagram;
     }
-
+    StringUtil reverse = new StringUtil();
     public void makeAnagram(String inputSymbols, String filterSymbols) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         if (inputSymbols.isEmpty() || filterSymbols.isEmpty()) {
             Anagram.setValue("Заповніть поля");
         } else {
 
-            for (int i = inputSymbols.length()-1; i >= 0; i--) {
-                result += inputSymbols.charAt(i);
-            }
-            Anagram.setValue(result);
+            result = reverse.doReverse(inputSymbols);
+            
+
+            Anagram.setValue(result.toString());
         }
     }
 }
