@@ -18,10 +18,7 @@ public class AnagramViewModel extends ViewModel {
         if (inputSymbols.isEmpty() || filterSymbols.isEmpty()) {
             Anagram.setValue("Заповніть поля");
         } else {
-
             result = stringUtil.doReverse(inputSymbols, filterSymbols);
-
-
             Anagram.setValue(result.toString());
         }
     }
