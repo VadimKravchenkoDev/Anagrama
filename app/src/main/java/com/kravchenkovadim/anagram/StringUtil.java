@@ -25,24 +25,34 @@ public class StringUtil {
     }
 
     public StringBuilder doReverse(StringBuilder word, String filter) {
-        // Initialize result with spaces, same length as word
-        StringBuilder result = new StringBuilder(" ".repeat(word.length()));
+        StringBuilder result = new StringBuilder();
 
-        // Index to keep track of position for non-filter characters in reverse order
-        int reverseIndex = word.length() - 1;
+        // Initialize filterString with spaces, same length as word
+        StringBuilder filterString = new StringBuilder(" ".repeat(word.length()));
 
-        for (int i = 0; i < word.length(); i++) {
-            char currentChar = word.charAt(i);
+        outerLoop:
+        for (int i = word.length() - 1; i >= 0; i--) {
 
-            // If current character is in the filter, keep it in the original position
-            if (filter.indexOf(currentChar) != -1) {
-                result.setCharAt(i, currentChar);
-            } else {
-                // Otherwise, add the character in reverse order
-                result.setCharAt(reverseIndex--, currentChar);
+            //Find filtering symbols and add them into filterString
+            for (int j = 0; j < filter.length(); j++) {
+                //find a filter symbol in word
+                if (word.charAt(i) == filter.charAt(j)) {
+                    filterString.setCharAt(i, word.charAt(i));
+                    continue outerLoop;
+                }
+            }
+            //add reverse symbol without filtering symbols
+            result.append(word.charAt(i));
+        }
+        for (int i = 0; i < filterString.length(); i++) {
+            for (int j = 0; j < filter.length(); j++) {
+                if (filterString.charAt(i) == filter.charAt(j)) {
+
+                    //add filtering symbols in correct place
+                    result.insert(i, filterString.charAt(i));
+                }
             }
         }
-
         return result;
     }
 }
