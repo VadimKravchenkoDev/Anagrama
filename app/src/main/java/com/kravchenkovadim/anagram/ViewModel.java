@@ -2,9 +2,8 @@ package com.kravchenkovadim.anagram;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-public class AnagramViewModel extends ViewModel {
+public class ViewModel extends androidx.lifecycle.ViewModel {
     private final MutableLiveData<String> Anagram =
             new MutableLiveData<>();
 
@@ -12,14 +11,12 @@ public class AnagramViewModel extends ViewModel {
         return Anagram;
     }
 
-    public void makeAnagram(String inputSymbols, String filterSymbols) {
+    public void insertAnagram(String inputSymbols, String filterSymbols) {
         StringUtil stringUtil = new StringUtil();
-        StringBuilder result;
         if (inputSymbols.isEmpty() || filterSymbols.isEmpty()) {
             Anagram.setValue("Заповніть поля");
         } else {
-            result = stringUtil.doReverse(inputSymbols, filterSymbols);
-            Anagram.setValue(result.toString());
+            Anagram.setValue(stringUtil.makeAnagram(inputSymbols, filterSymbols).toString());
         }
     }
 }

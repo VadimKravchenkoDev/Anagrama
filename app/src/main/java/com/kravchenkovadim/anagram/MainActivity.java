@@ -1,7 +1,6 @@
 package com.kravchenkovadim.anagram;
 
 import android.os.Bundle;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +13,7 @@ import com.kravchenkovadim.anagram.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
-    private AnagramViewModel anagramViewModel;
+    private ViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +26,13 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        anagramViewModel = new ViewModelProvider(this).get(AnagramViewModel.class);
+        viewModel = new ViewModelProvider(this).get(ViewModel.class);
         binding.ConvertButton.setOnClickListener(v -> {
             String inputSymbols = binding.inputText.getText().toString();
             String filterSymbols = binding.filterText.getText().toString();
-            anagramViewModel.makeAnagram(inputSymbols, filterSymbols);
+            viewModel.insertAnagram(inputSymbols, filterSymbols);
         });
 
-        anagramViewModel.getAnagram().observe(this, anagramText -> binding.outputResult.setText(anagramText));
+        viewModel.getAnagram().observe(this, anagramText -> binding.outputResult.setText(anagramText));
     }
 }

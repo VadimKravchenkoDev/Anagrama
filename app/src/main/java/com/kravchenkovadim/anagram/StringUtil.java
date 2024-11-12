@@ -2,7 +2,7 @@ package com.kravchenkovadim.anagram;
 
 public class StringUtil {
 
-  public StringBuilder  doReverse(String inputSymbols, String filterSymbols){
+  public StringBuilder makeAnagram(String inputSymbols, String filterSymbols){
       StringBuilder result = new StringBuilder();
 
       //currentWord is temporary bank for symbols before empty space
@@ -18,19 +18,9 @@ public class StringUtil {
       for (int a = 0; a < inputSymbols.length(); a++) {
           currentWord.insert(a, inputSymbols.charAt(a));
           if(inputSymbols.charAt(a)==space){
-              outerLoop:
-              for (int i = inputSymbols.length()-1; i >= 0; i--) {
+              currentWord.deleteCharAt(a);
 
-                  //Find filtering symbols and add them into filterSymbols
-                  for(int j = 0; j<filterSymbols.length(); j++){
-                      //find a filter symbol in input
-                      if(inputSymbols.charAt(i)==filterSymbols.charAt(j)){
-                          filterString.setCharAt(i,inputSymbols.charAt(i));
-                          continue outerLoop;
-                      }
-                  }
-                  result.append(inputSymbols.charAt(i));
-              }
+
 
               for(int i=0; i<filterString.length(); i++){
                   for(int j = 0; j<filterSymbols.length(); j++){
@@ -38,12 +28,33 @@ public class StringUtil {
                           result.insert(i,filterString.charAt(i));
                       }
                   }
+              }
+          currentWord.setLength(0);
+          result.append(space);
           }
-      }
 
 
       }
+
+
+
 
         return result;
-    }
+  }
+
+  public StringBuilder doReverse(StringBuilder word, StringBuilder filterString){
+      outerLoop:
+      for (int i = currentWord.length()-1; i >= 0; i--) {
+
+          //Find filtering symbols and add them into filterSymbols
+          for(int j = 0; j<filterSymbols.length(); j++){
+              //find a filter symbol in input
+              if(currentWord.charAt(i)==filterSymbols.charAt(j)){
+                  filterString.setCharAt(i,currentWord.charAt(i));
+                  continue outerLoop;
+              }
+          }
+          result.append(currentWord.charAt(i));
+      }
+  }
 }
