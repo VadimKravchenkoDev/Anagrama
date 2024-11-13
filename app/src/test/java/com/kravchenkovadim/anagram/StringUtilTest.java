@@ -11,103 +11,62 @@ public class StringUtilTest {
 
     @Before
     public void setUp() {
-        // Инициализируем объект StringUtil перед каждым тестом
         stringUtil = new StringUtil();
     }
 
     @Test
-    public void testMakeAnagramWithoutFilterFoxminded() {
-        // Входные данные: текст "Foxminded cool 24/7" без фильтра
-        String input = "Foxminded cool 24/7";
-        StringBuilder filter = new StringBuilder(); // Пустой фильтр
-
-        // Ожидаемый результат
-        String expected = "dednimxoF looc 24/7";
-
-        // Получаем результат
-        StringBuilder result = stringUtil.makeAnagram(input, filter);
-
-        // Проверяем результат
-        assertEquals(expected, result.toString());
+    public void testMakeAnagramWithoutFilter() {
+        StringBuilder input = new StringBuilder("Foxminded cool 24/7");
+        StringBuilder filter = new StringBuilder();
+        StringBuilder expected = new StringBuilder("dednimxoF looc 24/7");
+        assertEquals(expected.toString(), stringUtil.makeAnagram(input.toString(), filter).toString());
     }
 
     @Test
-    public void testMakeAnagramWithoutFilterAbcdEfgh() {
-        // Входные данные: текст "abcd efgh" без фильтра
-        String input = "abcd efgh";
-        StringBuilder filter = new StringBuilder(); // Пустой фильтр
-
-        // Ожидаемый результат
-        String expected = "dcba hgfe";
-
-        // Получаем результат
-        StringBuilder result = stringUtil.makeAnagram(input, filter);
-
-        // Проверяем результат
-        assertEquals(expected, result.toString());
+    public void testMakeAnagramWithAlphabetOnly() {
+        StringBuilder input = new StringBuilder("abcd efgh");
+        StringBuilder filter = new StringBuilder();
+        StringBuilder expected = new StringBuilder("dcba hgfe");
+        assertEquals(expected.toString(), stringUtil.makeAnagram(input.toString(), filter).toString());
     }
 
     @Test
-    public void testMakeAnagramWithoutFilterSpecialCharacters() {
-        // Входные данные: текст "a1bcd efg!h" без фильтра
-        String input = "a1bcd efg!h";
-        StringBuilder filter = new StringBuilder(); // Пустой фильтр
-
-        // Ожидаемый результат
-        String expected = "d1cba hgf!e";
-
-        // Получаем результат
-        StringBuilder result = stringUtil.makeAnagram(input, filter);
-
-        // Проверяем результат
-        assertEquals(expected, result.toString());
+    public void testMakeAnagramWithSpecialCharsAndDigits() {
+        StringBuilder input = new StringBuilder("a1bcd efg!h");
+        StringBuilder filter = new StringBuilder();
+        StringBuilder expected = new StringBuilder("d1cba hgf!e");
+        assertEquals(expected.toString(), stringUtil.makeAnagram(input.toString(), filter).toString());
     }
 
     @Test
-    public void testMakeAnagramWithFilterFoxminded() {
-        // Входные данные: текст "Foxminded cool 24/7" с фильтром "xl"
-        String input = "Foxminded cool 24/7";
+    public void testMakeAnagramWithCustomFilter() {
+        StringBuilder input = new StringBuilder("Foxminded cool 24/7");
         StringBuilder filter = new StringBuilder("xl");
-
-        // Ожидаемый результат
-        String expected = "dexdnimoF oocl 7/42";
-
-        // Получаем результат
-        StringBuilder result = stringUtil.makeAnagram(input, filter);
-
-        // Проверяем результат
-        assertEquals(expected, result.toString());
+        StringBuilder expected = new StringBuilder("dexdnimoF oocl 7/42");
+        assertEquals(expected.toString(), stringUtil.makeAnagram(input.toString(), filter).toString());
     }
 
     @Test
-    public void testMakeAnagramWithFilterAbcdEfgh() {
-        // Входные данные: текст "abcd efgh" с фильтром "xl"
-        String input = "abcd efgh";
-        StringBuilder filter = new StringBuilder("xl");
-
-        // Ожидаемый результат
-        String expected = "dcba hgfe";
-
-        // Получаем результат
-        StringBuilder result = stringUtil.makeAnagram(input, filter);
-
-        // Проверяем результат
-        assertEquals(expected, result.toString());
+    public void testMakeAnagramWithEmptyInput() {
+        StringBuilder input = new StringBuilder("");
+        StringBuilder filter = new StringBuilder();
+        StringBuilder expected = new StringBuilder("");
+        assertEquals(expected.toString(), stringUtil.makeAnagram(input.toString(), filter).toString());
     }
 
     @Test
-    public void testMakeAnagramWithFilterSpecialCharacters() {
-        // Входные данные: текст "a1bcd efglh" с фильтром "xl"
-        String input = "a1bcd efglh";
-        StringBuilder filter = new StringBuilder("xl");
+    public void testMakeAnagramWithSpacesOnly() {
+        StringBuilder input = new StringBuilder("    ");
+        StringBuilder filter = new StringBuilder();
+        StringBuilder expected = new StringBuilder("    ");
+        assertEquals(expected.toString(), stringUtil.makeAnagram(input.toString(), filter).toString());
+    }
 
-        // Ожидаемый результат
-        String expected = "dcb1a hgfle";
-
-        // Получаем результат
-        StringBuilder result = stringUtil.makeAnagram(input, filter);
-
-        // Проверяем результат
-        assertEquals(expected, result.toString());
+    @Test
+    public void testMakeAnagramWithFilterContainingSpecialCharacters() {
+        StringBuilder input = new StringBuilder("a!b@c#d e$f%g");
+        StringBuilder filter = new StringBuilder("!@#$%");
+        StringBuilder expected = new StringBuilder("d!c@b#a g%f$e");
+        assertEquals(expected.toString(), stringUtil.makeAnagram(input.toString(), filter).toString());
     }
 }

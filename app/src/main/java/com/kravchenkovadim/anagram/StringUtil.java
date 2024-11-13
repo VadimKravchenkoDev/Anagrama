@@ -23,6 +23,7 @@ public class StringUtil {
         result.append(doReverse(currentWord, filter));
         return result;
     }
+
     //do reverse and leave filter symbols on starting place
     public StringBuilder doReverse(StringBuilder word, StringBuilder filter) {
         StringBuilder result = new StringBuilder();

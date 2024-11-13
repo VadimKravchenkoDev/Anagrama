@@ -2,15 +2,16 @@ package com.kravchenkovadim.anagram;
 
 import static org.junit.Assert.assertEquals;
 
-
 import androidx.lifecycle.Observer;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
+
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 
 public class ViewModelTest {
 
@@ -29,7 +30,6 @@ public class ViewModelTest {
         viewModel.getAnagram().observeForever(observer);
     }
 
-
     @Test
     public void testInsertAnagramEmptyInput() {
         viewModel.insertAnagram("", new StringBuilder());
@@ -42,6 +42,5 @@ public class ViewModelTest {
         viewModel.insertAnagram("sample", filter);
         assertEquals("elpmas", viewModel.getAnagram().getValue());
     }
-
 }
 
