@@ -39,6 +39,8 @@ android {
 dependencies {
     implementation(libs.livedata)
     implementation(libs.viewmodel)
+    androidTestImplementation (libs.kaspresso)
+
 
     implementation(libs.appcompat)
     implementation(libs.material)
