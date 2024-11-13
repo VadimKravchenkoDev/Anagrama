@@ -27,8 +27,6 @@ public class ViewModel extends androidx.lifecycle.ViewModel {
                 // add special symbols in filter
                 String specialChars = "!@#$%^&*()_+-=[]{}|;:'\",.<>?/\\`~";
                 filterString.append(specialChars);
-                Log.d("mylog", filterString.toString());
-                Anagram.setValue(stringUtil.makeAnagram(inputSymbols, filterString).toString());
             }
             Anagram.setValue(stringUtil.makeAnagram(inputSymbols, filterString).toString());
         }

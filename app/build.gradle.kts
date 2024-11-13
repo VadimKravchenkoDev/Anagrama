@@ -29,24 +29,27 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    android{
-        viewBinding {
-            enable = true
-        }
+
+    viewBinding {
+        enable = true
     }
+
 }
 
 dependencies {
     implementation(libs.livedata)
     implementation(libs.viewmodel)
-    androidTestImplementation (libs.kaspresso)
-
 
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+
+    // Unit testing dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    testImplementation(libs.arch.core)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.inline)
 }
