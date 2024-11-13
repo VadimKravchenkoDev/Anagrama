@@ -24,35 +24,24 @@ public class ViewModelTest {
 
     @Before
     public void setup() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
         viewModel = new ViewModel();
         viewModel.getAnagram().observeForever(observer);
     }
 
+
     @Test
     public void testInsertAnagramEmptyInput() {
-        // Given
-        String inputSymbols = "";
-        StringBuilder filter = new StringBuilder();
-
-        // When
-        viewModel.insertAnagram(inputSymbols, filter);
-
-        // Then
-        assertEquals("Expected error message", viewModel.getAnagram().getValue());
+        viewModel.insertAnagram("", new StringBuilder());
+        assertEquals("Введіть текст", viewModel.getAnagram().getValue());
     }
 
     @Test
     public void testInsertAnagramValidInput() {
-        // Given
-        String inputSymbols = "sample text";
-        StringBuilder filter = new StringBuilder("filter");
-
-        // When
-        viewModel.insertAnagram(inputSymbols, filter);
-
-        // Then
-        assertEquals("Expected anagram result", viewModel.getAnagram().getValue());
+        StringBuilder filter = new StringBuilder();
+        viewModel.insertAnagram("sample", filter);
+        assertEquals("elpmas", viewModel.getAnagram().getValue());
     }
+
 }
 

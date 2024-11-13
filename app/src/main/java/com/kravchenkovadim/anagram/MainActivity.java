@@ -12,8 +12,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.kravchenkovadim.anagram.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-    private ActivityMainBinding binding;
-    private ViewModel viewModel;
+    ActivityMainBinding binding;
+    ViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
