@@ -29,8 +29,9 @@ public class MainActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(ViewModel.class);
         binding.ConvertButton.setOnClickListener(v -> {
             String inputSymbols = binding.inputText.getText().toString();
-            String filterSymbols = binding.filterText.getText().toString();
-            viewModel.insertAnagram(inputSymbols, filterSymbols);
+            String filterString = binding.filterText.getText().toString();
+            StringBuilder filter = new StringBuilder(filterString);
+            viewModel.insertAnagram(inputSymbols, filter);
         });
 
         viewModel.getAnagram().observe(this, anagramText -> binding.outputResult.setText(anagramText));

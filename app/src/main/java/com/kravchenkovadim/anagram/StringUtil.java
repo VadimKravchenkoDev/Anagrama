@@ -2,7 +2,7 @@ package com.kravchenkovadim.anagram;
 
 public class StringUtil {
 
-    public StringBuilder makeAnagram(String inputSymbols, String filter) {
+    public StringBuilder makeAnagram(String inputSymbols, StringBuilder filter) {
         StringBuilder result = new StringBuilder();
         StringBuilder currentWord = new StringBuilder();
         char space = ' ';
@@ -24,7 +24,7 @@ public class StringUtil {
         return result;
     }
     //do reverse and leave filter symbols on starting place
-    public StringBuilder doReverse(StringBuilder word, String filter) {
+    public StringBuilder doReverse(StringBuilder word, StringBuilder filter) {
         StringBuilder result = new StringBuilder();
 
         // Initialize filterString with spaces, same length as word
