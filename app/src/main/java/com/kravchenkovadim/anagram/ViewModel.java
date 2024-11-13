@@ -13,8 +13,9 @@ public class ViewModel extends androidx.lifecycle.ViewModel {
 
     public void insertAnagram(String inputSymbols, String filterSymbols) {
         StringUtil stringUtil = new StringUtil();
-        if (inputSymbols.isEmpty() || filterSymbols.isEmpty()) {
-            Anagram.setValue("Заповніть поля");
+        if (inputSymbols.isEmpty()) {
+            Anagram.setValue(StringConstants.INPUT_WORD);
+
         } else {
             Anagram.setValue(stringUtil.makeAnagram(inputSymbols, filterSymbols).toString());
         }
