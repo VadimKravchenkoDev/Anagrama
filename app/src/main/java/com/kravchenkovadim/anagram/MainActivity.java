@@ -1,14 +1,17 @@
 package com.kravchenkovadim.anagram;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.widget.Toolbar;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.kravchenkovadim.anagram.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,10 +34,19 @@ public class MainActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            View decorView = getWindow().getDecorView();
+            int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+            decorView.setSystemUiVisibility(uiOptions);
+        }
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.orange));
+
+
         viewModel = new ViewModelProvider(this).get(ViewModel.class);
         binding.ConvertButton.setOnClickListener(v -> {
-            String inputSymbols = binding.inputText.getText().toString();
-            String filterString = binding.filterText.getText().toString();
+            String inputSymbols = binding.inputTextLayout.getText().toString();
+            String filterString = binding.filterTextLayout.getText().toString();
             StringBuilder filter = new StringBuilder(filterString);
             viewModel.insertAnagram(inputSymbols, filter);
         });

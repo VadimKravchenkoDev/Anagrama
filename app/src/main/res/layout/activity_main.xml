@@ -36,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text=""
+        android:textColor="@color/orange"
         android:inputType="textMultiLine"
         android:maxLines="5"
         android:scrollbars="vertical"
@@ -43,41 +44,80 @@
         app:layout_constraintStart_toStartOf="@+id/filterText"
         app:layout_constraintTop_toBottomOf="@+id/filterText" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputText"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="184dp"
-        android:ems="10"
         android:hint="@string/enter_text"
-        android:inputType="textMultiLine"
         android:maxLines="5"
         android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/black"
+        app:boxCornerRadiusTopStart="4dp"
+        app:boxCornerRadiusTopEnd="4dp"
+        app:boxCornerRadiusBottomStart="4dp"
+        app:boxCornerRadiusBottomEnd="4dp"
+        app:hintTextAppearance="@style/HintTextStyle">
 
-    <EditText
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputTextLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:hint=""
+            android:scrollbars="vertical"
+            android:gravity="start|top"
+            android:ems="10"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/filterText"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:hint="@string/enter_symbols"
-        android:inputType="textMultiLine"
-        android:maxLines="6"
+        android:maxLines="5"
         android:scrollbars="vertical"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="4dp"
+        app:boxCornerRadiusBottomStart="4dp"
+        app:boxCornerRadiusTopEnd="4dp"
+        app:boxCornerRadiusTopStart="4dp"
+        app:boxStrokeColor="@color/black"
+        app:hintTextAppearance="@style/HintTextStyle"
         app:layout_constraintEnd_toEndOf="@+id/inputText"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/inputText"
-        app:layout_constraintTop_toBottomOf="@+id/inputText" />
+        app:layout_constraintTop_toBottomOf="@+id/inputText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/filterTextLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint=""
+            android:inputType="textMultiLine"
+            android:scrollbars="vertical"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/ConvertButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/convert"
+        android:layout_marginTop="16dp"
         android:background="@drawable/rounded_button"
+        android:text="@string/convert"
         app:layout_constraintEnd_toEndOf="@+id/filterText"
         app:layout_constraintStart_toStartOf="@+id/filterText"
         app:layout_constraintTop_toBottomOf="@+id/outputResult" />
