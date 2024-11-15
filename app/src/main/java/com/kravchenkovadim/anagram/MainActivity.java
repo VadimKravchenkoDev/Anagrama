@@ -1,7 +1,7 @@
 package com.kravchenkovadim.anagram;
 
 import android.os.Bundle;
-
+import androidx.appcompat.widget.Toolbar;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -26,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
         viewModel = new ViewModelProvider(this).get(ViewModel.class);
         binding.ConvertButton.setOnClickListener(v -> {
             String inputSymbols = binding.inputText.getText().toString();

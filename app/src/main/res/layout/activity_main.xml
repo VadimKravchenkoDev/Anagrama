@@ -6,7 +6,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#CAC9CA">
+    android:background="#FDFDFD">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/rounded_toolbar_background"
+        android:theme="@style/ToolbarTextStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Task1"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:theme="@style/ToolbarTextStyle" />
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:id="@+id/outputResult"
@@ -54,7 +76,8 @@
         android:id="@+id/ConvertButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Convert"
+        android:text="CONVERT"
+        android:theme="@style/ToolbarTextStyle"
         app:layout_constraintEnd_toEndOf="@+id/filterText"
         app:layout_constraintStart_toStartOf="@+id/filterText"
         app:layout_constraintTop_toBottomOf="@+id/outputResult" />
