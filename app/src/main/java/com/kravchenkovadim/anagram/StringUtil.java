@@ -11,7 +11,7 @@ public class StringUtil {
         char space = ' ';
 
         if (inputSymbols.isEmpty()) {
-            return result.append(StringConstants.INPUT_WORD);
+            return result.append(R.string.enter_your_text);
         } else {
             if (filter.length() == 0) {
                 // add digit in filter
@@ -24,7 +24,7 @@ public class StringUtil {
             }
         }
         if (hasDuplicateCharacters(filter.toString())) {
-            result.append("Filter should contain only unique characters.");
+            result.append(R.string.filter);
             return result; // Return early if duplicates are found
         }
         // Loop through each character in inputSymbols
