@@ -1,5 +1,8 @@
 package com.kravchenkovadim.anagram;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class StringUtil {
 
     public StringBuilder makeAnagram(String inputSymbols, StringBuilder filter) {
@@ -8,10 +11,9 @@ public class StringUtil {
         char space = ' ';
 
         if (inputSymbols.isEmpty()) {
-            result.append(StringConstants.INPUT_WORD);
+            return result.append(StringConstants.INPUT_WORD);
         } else {
             if (filter.length() == 0) {
-
                 // add digit in filter
                 for (char ch = '0'; ch <= '9'; ch++) {
                     filter.append(ch);
@@ -20,6 +22,10 @@ public class StringUtil {
                 String specialChars = "!@#$%^&*()_+-=[]{}|;:'\",.<>?/\\`~";
                 filter.append(specialChars);
             }
+        }
+        if (hasDuplicateCharacters(filter.toString())) {
+            result.append("Filter should contain only unique characters.");
+            return result; // Return early if duplicates are found
         }
         // Loop through each character in inputSymbols
         for (int a = 0; a < inputSymbols.length(); a++) {
@@ -36,6 +42,17 @@ public class StringUtil {
         // Process the last word, as it doesn't end with a space
         result.append(doReverse(currentWord, filter));
         return result;
+    }
+
+    private boolean hasDuplicateCharacters(String string) {
+        Set<Character> seen = new HashSet<>();
+        for (char ch : string.toCharArray()) {
+
+            if (!seen.add(ch)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     //do reverse and leave filter symbols on starting place
