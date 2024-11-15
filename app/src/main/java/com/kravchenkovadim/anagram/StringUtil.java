@@ -19,11 +19,10 @@ public class StringUtil {
                     filter.append(ch);
                 }
                 // add special symbols in filter
-                String specialChars = "!@#$%^&*()_+-=[]{}|;:'\",.<>?/\\`~";
-                filter.append(specialChars);
+                filter.append(String.valueOf(R.string.symbols));
             }
         }
-        if (hasDuplicateCharacters(filter.toString())) {
+        if (hasDuplicateCharacters(filter.toString()) || filter.toString().contains(" ")) {
             result.append(R.string.filter);
             return result; // Return early if duplicates are found
         }
