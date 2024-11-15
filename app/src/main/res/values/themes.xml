@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Anagram" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">#FF3D00</item>
+        <item name="colorPrimary">#ffaa00</item>
     </style>
 
     <style name="Theme.Anagram" parent="Base.Theme.Anagram" />
