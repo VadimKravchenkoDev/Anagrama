@@ -7,6 +7,20 @@ public class StringUtil {
         StringBuilder currentWord = new StringBuilder();
         char space = ' ';
 
+        if (inputSymbols.isEmpty()) {
+            result.append(StringConstants.INPUT_WORD);
+        } else {
+            if (filter.length() == 0) {
+
+                // add digit in filter
+                for (char ch = '0'; ch <= '9'; ch++) {
+                    filter.append(ch);
+                }
+                // add special symbols in filter
+                String specialChars = "!@#$%^&*()_+-=[]{}|;:'\",.<>?/\\`~";
+                filter.append(specialChars);
+            }
+        }
         // Loop through each character in inputSymbols
         for (int a = 0; a < inputSymbols.length(); a++) {
             currentWord.append(inputSymbols.charAt(a));

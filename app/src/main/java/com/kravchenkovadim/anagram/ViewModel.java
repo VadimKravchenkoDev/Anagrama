@@ -15,20 +15,6 @@ public class ViewModel extends androidx.lifecycle.ViewModel {
 
     public void insertAnagram(String inputSymbols, StringBuilder filterString) {
         StringUtil stringUtil = new StringUtil();
-        if (inputSymbols.isEmpty()) {
-            Anagram.setValue(StringConstants.INPUT_WORD);
-        } else {
-            if (filterString.length() == 0) {
-
-                // add digit in filter
-                for (char ch = '0'; ch <= '9'; ch++) {
-                    filterString.append(ch);
-                }
-                // add special symbols in filter
-                String specialChars = "!@#$%^&*()_+-=[]{}|;:'\",.<>?/\\`~";
-                filterString.append(specialChars);
-            }
-            Anagram.setValue(stringUtil.makeAnagram(inputSymbols, filterString).toString());
-        }
+        Anagram.setValue(stringUtil.makeAnagram(inputSymbols, filterString).toString());
     }
 }
