@@ -34,15 +34,19 @@ public class StringUtil {
 
         outerLoop:
         for (int i = word.length() - 1; i >= 0; i--) {
+            boolean isFiltered = false;
             // check the every symbols that is in the filter
             for (int j = 0; j < filter.length(); j++) {
                 if (word.charAt(i) == filter.charAt(j)) {
                     filterString.setCharAt(i, word.charAt(i));
-                    continue outerLoop;
+                    isFiltered = true;
+                    break;
                 }
             }
             // Symbols that are not filterable can be added
-            result.append(word.charAt(i));
+            if (!isFiltered) {
+                result.append(word.charAt(i));
+            }
         }
 
         // Add filtering symbols at the correct position
