@@ -7,6 +7,7 @@
     <string name="filter">Filter should contain only unique characters.</string>
     <string name="enter_your_text">Enter your text.</string>
     <string name="symbols">!@#$%^&amp;*()_+-=[]{}|;:&quot;, .&lt;&gt;?\/\\`~</string>
+    <string name="digit">0123456789</string>
 
 
 </resources>

@@ -51,26 +51,36 @@ public class MainActivity extends AppCompatActivity {
         binding.ConvertButton.setOnClickListener(v -> {
             String inputSymbols = binding.inputTextLayout.getText().toString();
             String filterString = binding.filterTextLayout.getText().toString();
-            if (hasDuplicateCharacters(filterString)) {
-                binding.outputResult.setText(R.string.filter);
-            } else if (inputSymbols.isEmpty()) {
-                binding.outputResult.setText(R.string.enter_your_text);
-                if (filterString.contains(" ")) {
-                    binding.outputResult.setText(R.string.enter_symbols);
-                }
-                if (filterString.isEmpty()) {
-                    // add digit in filter
-                    for (char ch = '0'; ch <= '9'; ch++) {
-                        filterString += ch;
-                    }
-                    // add special symbols in filter
-                    filterString += R.string.symbols;
-                }
-            } else viewModel.insertAnagram(inputSymbols, filterString);
-        });
 
+            checkReadyToReverse(inputSymbols, filterString);
+        });
         viewModel.getAnagram().
                 observe(this, anagramText -> binding.outputResult.setText(anagramText));
+    }
+
+    private void checkReadyToReverse(String inputSymbols, String filterString) {
+        boolean readyToReverse = true;
+        if (hasDuplicateCharacters(filterString)) {
+            binding.outputResult.setText(R.string.filter);
+            readyToReverse = false;
+        }
+        if (filterString.contains(" ")) {
+            binding.outputResult.setText(R.string.enter_symbols);
+            readyToReverse = false;
+        }
+        if (inputSymbols.isEmpty()) {
+            binding.outputResult.setText(R.string.enter_your_text);
+            readyToReverse = false;
+        }
+        if (filterString.isEmpty()) {
+            // add digit in filter
+            filterString += getString(R.string.digit);
+            // add special symbols in filter
+            filterString += getString(R.string.symbols);
+        }
+        if (readyToReverse) {
+            viewModel.insertAnagram(inputSymbols, filterString);
+        }
     }
 
     private boolean hasDuplicateCharacters(String string) {
