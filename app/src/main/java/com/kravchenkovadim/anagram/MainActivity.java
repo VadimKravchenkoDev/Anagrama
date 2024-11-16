@@ -1,8 +1,11 @@
 package com.kravchenkovadim.anagram;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.activity.EdgeToEdge;
@@ -93,4 +96,20 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        // Проверяем, если клик был не по EditText, скрываем клавиатуру
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            // Получаем текущее фокусное поле
+            View view = getCurrentFocus();
+            if (view != null) {
+                // Если есть фокус, скрываем клавиатуру
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+        }
+        return super.onTouchEvent(event);
+    }
+
 }
