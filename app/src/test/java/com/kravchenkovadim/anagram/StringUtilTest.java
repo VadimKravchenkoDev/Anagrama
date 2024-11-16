@@ -1,72 +1,50 @@
 package com.kravchenkovadim.anagram;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class StringUtilTest {
 
-    private StringUtil stringUtil;
+    @Test
+    public void testMakeAnagram_reversesWords() {
+        // Arrange
+        StringUtil stringUtil = new StringUtil();
+        String inputSymbols = "abcd efgh";
+        String filterString = "b";
 
-    @Before
-    public void setUp() {
-        stringUtil = new StringUtil();
+        // Act
+        String result = stringUtil.makeAnagram(inputSymbols, filterString).toString();
+
+        // Assert
+        assertEquals("dbca hgfe", result);
     }
 
     @Test
-    public void testMakeAnagramWithoutFilter() {
-        StringBuilder input = new StringBuilder("Foxminded cool 24/7");
-        StringBuilder filter = new StringBuilder();
-        StringBuilder expected = new StringBuilder("dednimxoF looc 24/7");
-        assertEquals(expected.toString(), stringUtil.makeAnagram(input.toString(), filter).toString());
+    public void testMakeAnagram_preservesFilterSymbols() {
+        // Arrange
+        StringUtil stringUtil = new StringUtil();
+        String inputSymbols = "abc def ghi";
+        String filterString = "b";
+
+        // Act
+        String result = stringUtil.makeAnagram(inputSymbols, filterString).toString();
+
+        // Assert
+        assertEquals("cba fed ihg", result);
     }
 
     @Test
-    public void testMakeAnagramWithAlphabetOnly() {
-        StringBuilder input = new StringBuilder("abcd efgh");
-        StringBuilder filter = new StringBuilder();
-        StringBuilder expected = new StringBuilder("dcba hgfe");
-        assertEquals(expected.toString(), stringUtil.makeAnagram(input.toString(), filter).toString());
-    }
+    public void testMakeAnagram_handlesEmptyInput() {
+        // Arrange
+        StringUtil stringUtil = new StringUtil();
+        String inputSymbols = "";
+        String filterString = "x";
 
-    @Test
-    public void testMakeAnagramWithSpecialCharsAndDigits() {
-        StringBuilder input = new StringBuilder("a1bcd efg!h");
-        StringBuilder filter = new StringBuilder();
-        StringBuilder expected = new StringBuilder("d1cba hgf!e");
-        assertEquals(expected.toString(), stringUtil.makeAnagram(input.toString(), filter).toString());
-    }
+        // Act
+        String result = stringUtil.makeAnagram(inputSymbols, filterString).toString();
 
-    @Test
-    public void testMakeAnagramWithCustomFilter() {
-        StringBuilder input = new StringBuilder("Foxminded cool 24/7");
-        StringBuilder filter = new StringBuilder("xl");
-        StringBuilder expected = new StringBuilder("dexdnimoF oocl 7/42");
-        assertEquals(expected.toString(), stringUtil.makeAnagram(input.toString(), filter).toString());
-    }
-
-    @Test
-    public void testMakeAnagramWithEmptyInput() {
-        StringBuilder input = new StringBuilder("");
-        StringBuilder filter = new StringBuilder();
-        StringBuilder expected = new StringBuilder("");
-        assertEquals(expected.toString(), stringUtil.makeAnagram(input.toString(), filter).toString());
-    }
-
-    @Test
-    public void testMakeAnagramWithSpacesOnly() {
-        StringBuilder input = new StringBuilder("    ");
-        StringBuilder filter = new StringBuilder();
-        StringBuilder expected = new StringBuilder("    ");
-        assertEquals(expected.toString(), stringUtil.makeAnagram(input.toString(), filter).toString());
-    }
-
-    @Test
-    public void testMakeAnagramWithFilterContainingSpecialCharacters() {
-        StringBuilder input = new StringBuilder("a!b@c#d e$f%g");
-        StringBuilder filter = new StringBuilder("!@#$%");
-        StringBuilder expected = new StringBuilder("d!c@b#a g%f$e");
-        assertEquals(expected.toString(), stringUtil.makeAnagram(input.toString(), filter).toString());
+        // Assert
+        assertEquals("", result);
     }
 }

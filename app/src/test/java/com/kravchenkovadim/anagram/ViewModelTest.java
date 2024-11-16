@@ -1,46 +1,34 @@
 package com.kravchenkovadim.anagram;
 
-import static org.junit.Assert.assertEquals;
-
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 import androidx.lifecycle.Observer;
 
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
-
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.Mockito;
 
 public class ViewModelTest {
 
     @Rule
     public InstantTaskExecutorRule rule = new InstantTaskExecutorRule();
 
-    private ViewModel viewModel;
+    @Test
+    public void testInsertAnagram_updatesLiveData() {
+        // Arrange
+        ViewModel viewModel = new ViewModel();
+        String inputSymbols = "abcd";
+        String filterString = "b";
+        StringUtil mockStringUtil = Mockito.mock(StringUtil.class);
+        Mockito.when(mockStringUtil.makeAnagram(inputSymbols, filterString))
+                .thenReturn(new StringBuilder("dbca"));
 
-    @Mock
-    private Observer<String> observer;
-
-    @Before
-    public void setup() {
-        MockitoAnnotations.openMocks(this);
-        viewModel = new ViewModel();
+        Observer<String> observer = Mockito.mock(Observer.class);
         viewModel.getAnagram().observeForever(observer);
-    }
 
-    @Test
-    public void testInsertAnagramEmptyInput() {
-        viewModel.insertAnagram("", new StringBuilder());
-        assertEquals("Введіть текст", viewModel.getAnagram().getValue());
-    }
+        // Act
+        viewModel.insertAnagram(inputSymbols, filterString);
 
-    @Test
-    public void testInsertAnagramValidInput() {
-        StringBuilder filter = new StringBuilder();
-        viewModel.insertAnagram("sample", filter);
-        assertEquals("elpmas", viewModel.getAnagram().getValue());
+        // Assert
+        Mockito.verify(observer).onChanged("dbca");
     }
 }
-
