@@ -12,7 +12,10 @@
     <dimen name="filter_width">200dp</dimen>
     <dimen name="button_width">0dp</dimen>
     <dimen name="input_text_size">12sp</dimen>
-    <dimen name="button_height">wrap_content</dimen>
+    <dimen name="cornerRadius">4sp</dimen>
+    <dimen name="lines">5</dimen>
+    <dimen name="ems">10</dimen>
+
 
     <dimen name="toolbar_height_g">56dp</dimen>
     <dimen name="toolbar_title_size_g">20sp</dimen>
