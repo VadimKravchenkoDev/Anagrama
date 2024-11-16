@@ -9,8 +9,7 @@ public class StringUtil {
         StringBuilder result = new StringBuilder();
         StringBuilder currentWord = new StringBuilder();
         char space = ' ';
-
-
+        
         // Loop through each character in inputSymbols
         for (int a = 0; a < inputSymbols.length(); a++) {
             currentWord.append(inputSymbols.charAt(a));
@@ -27,8 +26,6 @@ public class StringUtil {
         result.append(doReverse(currentWord, filterString));
         return result;
     }
-
-
 
     //do reverse and leave filter symbols on starting place
     public StringBuilder doReverse(StringBuilder word, String filter) {
