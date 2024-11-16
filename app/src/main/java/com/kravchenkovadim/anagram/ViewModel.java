@@ -13,7 +13,7 @@ public class ViewModel extends androidx.lifecycle.ViewModel {
         return Anagram;
     }
 
-    public void insertAnagram(String inputSymbols, StringBuilder filterString) {
+    public void insertAnagram(String inputSymbols, String filterString) {
         StringUtil stringUtil = new StringUtil();
         Anagram.setValue(stringUtil.makeAnagram(inputSymbols, filterString).toString());
     }

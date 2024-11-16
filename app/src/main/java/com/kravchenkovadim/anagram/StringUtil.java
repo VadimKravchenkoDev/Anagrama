@@ -5,27 +5,12 @@ import java.util.Set;
 
 public class StringUtil {
 
-    public StringBuilder makeAnagram(String inputSymbols, StringBuilder filter) {
+    public StringBuilder makeAnagram(String inputSymbols, String filterString) {
         StringBuilder result = new StringBuilder();
         StringBuilder currentWord = new StringBuilder();
         char space = ' ';
 
-        if (inputSymbols.isEmpty()) {
-            return result.append(R.string.enter_your_text);
-        } else {
-            if (filter.length() == 0) {
-                // add digit in filter
-                for (char ch = '0'; ch <= '9'; ch++) {
-                    filter.append(ch);
-                }
-                // add special symbols in filter
-                filter.append(String.valueOf(R.string.symbols));
-            }
-        }
-        if (hasDuplicateCharacters(filter.toString()) || filter.toString().contains(" ")) {
-            result.append(R.string.filter);
-            return result; // Return early if duplicates are found
-        }
+
         // Loop through each character in inputSymbols
         for (int a = 0; a < inputSymbols.length(); a++) {
             currentWord.append(inputSymbols.charAt(a));
@@ -33,29 +18,20 @@ public class StringUtil {
             if (inputSymbols.charAt(a) == space) {
                 // Remove the space from the end of the current word
                 currentWord.deleteCharAt(currentWord.length() - 1);
-                // Reverse current word with the filter applied, and add to result
-                result.append(doReverse(currentWord, filter)).append(space);
+                // Reverse current word with the filterString applied, and add to result
+                result.append(doReverse(currentWord, filterString)).append(space);
                 currentWord.setLength(0); // Clear for the next word
             }
         }
         // Process the last word, as it doesn't end with a space
-        result.append(doReverse(currentWord, filter));
+        result.append(doReverse(currentWord, filterString));
         return result;
     }
 
-    private boolean hasDuplicateCharacters(String string) {
-        Set<Character> seen = new HashSet<>();
-        for (char ch : string.toCharArray()) {
 
-            if (!seen.add(ch)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     //do reverse and leave filter symbols on starting place
-    public StringBuilder doReverse(StringBuilder word, StringBuilder filter) {
+    public StringBuilder doReverse(StringBuilder word, String filter) {
         StringBuilder result = new StringBuilder();
 
         // Initialize filterString with spaces, same length as word

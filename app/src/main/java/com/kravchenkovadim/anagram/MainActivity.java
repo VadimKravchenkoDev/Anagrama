@@ -12,7 +12,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
+
 import com.kravchenkovadim.anagram.databinding.ActivityMainBinding;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
@@ -47,10 +51,36 @@ public class MainActivity extends AppCompatActivity {
         binding.ConvertButton.setOnClickListener(v -> {
             String inputSymbols = binding.inputTextLayout.getText().toString();
             String filterString = binding.filterTextLayout.getText().toString();
-            StringBuilder filter = new StringBuilder(filterString);
-            viewModel.insertAnagram(inputSymbols, filter);
+            if (hasDuplicateCharacters(filterString)) {
+                binding.outputResult.setText(R.string.filter);
+            } else if (inputSymbols.isEmpty()) {
+                binding.outputResult.setText(R.string.enter_your_text);
+                if (filterString.contains(" ")) {
+                    binding.outputResult.setText(R.string.enter_symbols);
+                }
+                if (filterString.isEmpty()) {
+                    // add digit in filter
+                    for (char ch = '0'; ch <= '9'; ch++) {
+                        filterString += ch;
+                    }
+                    // add special symbols in filter
+                    filterString += R.string.symbols;
+                }
+            } else viewModel.insertAnagram(inputSymbols, filterString);
         });
 
-        viewModel.getAnagram().observe(this, anagramText -> binding.outputResult.setText(anagramText));
+        viewModel.getAnagram().
+                observe(this, anagramText -> binding.outputResult.setText(anagramText));
+    }
+
+    private boolean hasDuplicateCharacters(String string) {
+        Set<Character> seen = new HashSet<>();
+        for (char ch : string.toCharArray()) {
+
+            if (!seen.add(ch)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -2,7 +2,7 @@
     <string name="app_name">Anagram</string>
     <string name="task1">Task1</string>
     <string name="enter_text">Enter text for anagram</string>
-    <string name="enter_symbols">Enter symbols to ignore</string>
+    <string name="enter_symbols">Enter symbols to ignore without space</string>
     <string name="convert">CONVERT</string>
     <string name="filter">Filter should contain only unique characters.</string>
     <string name="enter_your_text">Enter your text.</string>
