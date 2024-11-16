@@ -10,14 +10,14 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_width="727dp"
+        android:layout_height="56dp"
         android:background="@drawable/rounded_toolbar_background"
         android:theme="@style/ToolbarTextStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
@@ -26,15 +26,15 @@
             android:gravity="center"
             android:text="@string/task1"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
+            android:textSize="@dimen/toolbar_title_size_g"
             android:theme="@style/ToolbarTextStyle" />
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:id="@+id/outputResult"
-        android:layout_width="200dp"
+        android:layout_width="@dimen/input_width_g"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/output_margin_top_g"
         android:text=""
         android:textColor="@color/orange"
         android:inputType="textMultiLine"
@@ -46,14 +46,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputText"
-        android:layout_width="200dp"
+        android:layout_width="@dimen/input_width_g"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="@dimen/input_margin_top_g"
         android:hint="@string/enter_text"
         android:maxLines="5"
         android:scrollbars="vertical"
         app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="4dp"
+        app:boxCornerRadiusBottomEnd="@dimen/button_margin_top_g"
         app:boxCornerRadiusBottomStart="4dp"
         app:boxCornerRadiusTopEnd="4dp"
         app:boxCornerRadiusTopStart="4dp"
@@ -64,24 +64,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputTextLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:ems="10"
             android:gravity="start|top"
             android:hint=""
             android:inputType="textMultiLine"
             android:scrollbars="vertical"
-            android:textSize="12sp" />
+            android:textSize="@dimen/input_text_size_g" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/filterText"
-        android:layout_width="200dp"
+        android:layout_width="@dimen/filter_width_g"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/filter_margin_top_g"
         android:hint="@string/enter_symbols"
         android:maxLines="5"
         android:scrollbars="vertical"
@@ -96,7 +95,6 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/inputText"
         app:layout_constraintTop_toBottomOf="@+id/inputText">
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/filterTextLayout"
             android:layout_width="match_parent"
@@ -106,20 +104,18 @@
             android:hint=""
             android:inputType="textMultiLine"
             android:scrollbars="vertical"
-            android:textSize="12sp" />
+            android:textSize="@dimen/input_text_size_g" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/ConvertButton"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/button_width_g"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/button_margin_top_g"
         android:background="@drawable/rounded_button"
         android:text="@string/convert"
         app:layout_constraintEnd_toEndOf="@+id/filterText"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/filterText"
         app:layout_constraintTop_toBottomOf="@+id/outputResult" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,7 +13,7 @@ public class StringUtil {
 
         for (String word : words) {
             // Invertable skin word, use filter
-            result.append(doReverse(new StringBuilder(word), filterString)).append(" ");
+            result.append(doReverse(word, filterString)).append(" ");
         }
 
         // delete last space
@@ -26,7 +26,7 @@ public class StringUtil {
 
 
     //do reverse and leave filter symbols on starting place
-    public StringBuilder doReverse(StringBuilder word, String filter) {
+    public StringBuilder doReverse(String word, String filter) {
         StringBuilder result = new StringBuilder();
 
         //initialize the row to save the position of filtering symbols
