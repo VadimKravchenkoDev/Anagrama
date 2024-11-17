@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#FBFBFB">
+    android:background="@color/white">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -25,16 +25,16 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="@string/task1"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/toolbar_title_size_g"
+            android:textColor="@color/white"
+            android:textSize="@dimen/toolbar_title_size"
             android:theme="@style/ToolbarTextStyle" />
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:id="@+id/outputResult"
-        android:layout_width="@dimen/input_width_g"
+        android:layout_width="@dimen/input_width"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/output_margin_top_g"
+        android:layout_marginTop="@dimen/output_margin_top"
         android:text=""
         android:textColor="@color/orange"
         android:inputType="textMultiLine"
@@ -46,14 +46,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputText"
-        android:layout_width="@dimen/input_width_g"
+        android:layout_width="@dimen/input_width"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/input_margin_top_g"
+        android:layout_marginTop="@dimen/input_margin_top"
         android:hint="@string/enter_text"
         android:maxLines="@string/lines"
         android:scrollbars="vertical"
         app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="@dimen/button_margin_top_g"
+        app:boxCornerRadiusBottomEnd="@dimen/button_margin_top"
         app:boxCornerRadiusBottomStart="@dimen/cornerRadius"
         app:boxCornerRadiusTopEnd="@dimen/cornerRadius"
         app:boxCornerRadiusTopStart="@dimen/cornerRadius"
@@ -67,20 +67,20 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputTextLayout"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
+            android:layout_height="@dimen/inputText_height"
             android:ems="@string/ems"
             android:gravity="start|top"
             android:hint=""
             android:inputType="textMultiLine"
             android:scrollbars="vertical"
-            android:textSize="@dimen/input_text_size_g" />
+            android:textSize="@dimen/input_text_size" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/filterText"
-        android:layout_width="@dimen/filter_width_g"
+        android:layout_width="@dimen/filter_width"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/filter_margin_top_g"
+        android:layout_marginTop="@dimen/filter_margin_top"
         android:hint="@string/enter_symbols"
         android:maxLines="@string/lines"
         android:scrollbars="vertical"
@@ -104,14 +104,14 @@
             android:hint=""
             android:inputType="textMultiLine"
             android:scrollbars="vertical"
-            android:textSize="@dimen/input_text_size_g" />
+            android:textSize="@dimen/input_text_size" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/ConvertButton"
-        android:layout_width="@dimen/button_width_g"
+        android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/button_margin_top_g"
+        android:layout_marginTop="@dimen/button_margin_top"
         android:background="@drawable/rounded_button"
         android:text="@string/convert"
         app:layout_constraintEnd_toEndOf="@+id/filterText"

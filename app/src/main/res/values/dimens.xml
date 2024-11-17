@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-
     <dimen name="toolbar_height">56dp</dimen>
     <dimen name="toolbar_title_size">20sp</dimen>
     <dimen name="output_margin_top">16dp</dimen>
@@ -9,24 +8,12 @@
     <dimen name="filter_margin_top">32dp</dimen>
     <dimen name="button_margin_top">16dp</dimen>
     <dimen name="input_width">200dp</dimen>
+    <dimen name="inputText_height">60dp</dimen>
     <dimen name="filter_width">200dp</dimen>
     <dimen name="button_width">0dp</dimen>
     <dimen name="input_text_size">12sp</dimen>
     <dimen name="cornerRadius">4sp</dimen>
     <dimen name="lines">5</dimen>
     <dimen name="ems">10</dimen>
-
-
-    <dimen name="toolbar_height_g">56dp</dimen>
-    <dimen name="toolbar_title_size_g">20sp</dimen>
-    <dimen name="output_margin_top_g">16dp</dimen>
-    <dimen name="input_margin_top_g">88dp</dimen>
-    <dimen name="filter_margin_top_g">16dp</dimen>
-    <dimen name="button_margin_top_g">16dp</dimen>
-    <dimen name="input_width_g">250dp</dimen>
-    <dimen name="filter_width_g">250dp</dimen>
-    <dimen name="button_width_g">0dp</dimen>
-    <dimen name="input_text_size_g">14sp</dimen>
-
 </resources>
 
