@@ -49,6 +49,13 @@ public class StringUtil {
 
         // Add filtering symbols at the correct position
         for (int i = 0; i < filterString.length(); i++) {
+
+//////////////////////////////////////////////////////////////////////
+//           if(filterString.toString().contains(String.valueOf(filter.charAt(i)))){
+//               result.insert(i, filterString.charAt(i));
+//           }
+////////////////////////////////////////////////////////////////////////
+
             for (int j = 0; j < filter.length(); j++) {
                 if (filterString.charAt(i) == filter.charAt(j)) {
                     result.insert(i, filterString.charAt(i));
