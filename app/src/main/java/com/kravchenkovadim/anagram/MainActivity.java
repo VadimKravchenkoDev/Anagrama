@@ -1,7 +1,6 @@
 package com.kravchenkovadim.anagram;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -76,10 +75,8 @@ public class MainActivity extends AppCompatActivity {
             readyToReverse = false;
         }
         if (filterString.isEmpty()) {
-            // add digit in filter
-            filterString += getString(R.string.digit);
             // add special symbols in filter
-            filterString += getString(R.string.symbols);
+            filterString += getString(R.string.symbolsDigits);
         }
         if (readyToReverse) {
             viewModel.insertAnagram(inputSymbols, filterString);
