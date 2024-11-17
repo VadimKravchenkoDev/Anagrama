@@ -3,7 +3,6 @@
 <resources>
     <dimen name="cornerRadius">4sp</dimen>
     <dimen name="lines">5</dimen>
-    <dimen name="ems">10</dimen>
     <dimen name="toolbar_height">56dp</dimen>
     <dimen name="toolbar_title_size">20sp</dimen>
     <dimen name="output_margin_top">16dp</dimen>
