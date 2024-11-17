@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 public class ViewModel extends androidx.lifecycle.ViewModel {
+    private final StringUtil stringUtil = new StringUtil();
     private final MutableLiveData<String> Anagram =
             new MutableLiveData<>();
 
@@ -14,7 +15,6 @@ public class ViewModel extends androidx.lifecycle.ViewModel {
     }
 
     public void insertAnagram(String inputSymbols, String filterString) {
-        StringUtil stringUtil = new StringUtil();
         Anagram.setValue(stringUtil.makeAnagram(inputSymbols, filterString).toString());
     }
 }

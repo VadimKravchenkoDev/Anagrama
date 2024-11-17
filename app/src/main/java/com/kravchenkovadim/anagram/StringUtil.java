@@ -24,7 +24,6 @@ public class StringUtil {
         return result.toString();
     }
 
-
     //do reverse and leave filter symbols on starting place
     public StringBuilder doReverse(String word, String filter) {
         StringBuilder result = new StringBuilder();
@@ -32,7 +31,6 @@ public class StringUtil {
         //initialize the row to save the position of filtering symbols
         StringBuilder filterString = new StringBuilder(" ".repeat(word.length()));
 
-        outerLoop:
         for (int i = word.length() - 1; i >= 0; i--) {
             boolean isFiltered = false;
             // check the every symbols that is in the filter
