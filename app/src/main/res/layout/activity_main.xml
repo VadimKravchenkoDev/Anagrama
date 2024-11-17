@@ -35,8 +35,8 @@
         android:layout_width="@dimen/input_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/output_margin_top"
-        android:text=""
         android:textColor="@color/orange"
+        android:text=""
         android:inputType="textMultiLine"
         android:maxLines="@string/lines"
         android:scrollbars="vertical"
@@ -46,28 +46,26 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputText"
-        android:layout_width="@dimen/input_width"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/input_margin_top"
+        style="@style/TextInputLayout"
+        android:layout_marginTop="90dp"
         android:hint="@string/enter_text"
         android:maxLines="@string/lines"
         android:scrollbars="vertical"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="@dimen/cornerRadius"
+        app:boxCornerRadiusBottomStart="@dimen/cornerRadius"
+        app:boxCornerRadiusTopEnd="@dimen/cornerRadius"
+        app:boxCornerRadiusTopStart="@dimen/cornerRadius"
+        app:boxStrokeColor="@color/black"
+        app:hintTextAppearance="@style/HintTextStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/black"
-        app:boxCornerRadiusTopStart="@dimen/cornerRadius"
-        app:boxCornerRadiusTopEnd="@dimen/cornerRadius"
-        app:boxCornerRadiusBottomStart="@dimen/cornerRadius"
-        app:boxCornerRadiusBottomEnd="@dimen/cornerRadius"
-        app:hintTextAppearance="@style/HintTextStyle">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputTextLayout"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/inputText_height"
+            style="@style/TextInputEditText"
             android:gravity="start|top"
             android:hint=""
             android:inputType="textMultiLine"
@@ -77,9 +75,8 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/filterText"
-        android:layout_width="@dimen/filter_width"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/filter_margin_top"
+        style="@style/TextInputLayout"
+        android:layout_marginTop="32dp"
         android:hint="@string/enter_symbols"
         android:maxLines="@string/lines"
         android:scrollbars="vertical"
@@ -94,10 +91,10 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/inputText"
         app:layout_constraintTop_toBottomOf="@+id/inputText">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/filterTextLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/TextInputEditText"
             android:gravity="start|top"
             android:hint=""
             android:inputType="textMultiLine"
