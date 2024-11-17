@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- В styles.xml -->
+    <style name="TextInputStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start|top</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:textSize">@dimen/input_text_size</item>
+    </style>
+
+    <style name="TextInputLayoutStyle">
+        <item name="android:layout_width">@dimen/input_width</item>
+        <item name="android:layout_marginTop">@dimen/input_margin_top</item>
+    </style>
+
+</resources>

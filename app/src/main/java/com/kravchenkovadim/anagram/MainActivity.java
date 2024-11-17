@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             readyToReverse = false;
         }
         if (filterString.contains(" ")) {
-            binding.outputResult.setText(R.string.enter_symbols);
+            binding.outputResult.setText(R.string.enter_symbols_error);
             readyToReverse = false;
         }
         if (inputSymbols.isEmpty()) {
