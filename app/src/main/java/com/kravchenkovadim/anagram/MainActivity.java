@@ -96,12 +96,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        // Проверяем, если клик был не по EditText, скрываем клавиатуру
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            // Получаем текущее фокусное поле
             View view = getCurrentFocus();
             if (view != null) {
-                // Если есть фокус, скрываем клавиатуру
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
             }
