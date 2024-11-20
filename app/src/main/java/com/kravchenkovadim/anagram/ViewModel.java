@@ -1,14 +1,20 @@
 package com.kravchenkovadim.anagram;
 
-import android.util.Log;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 public class ViewModel extends androidx.lifecycle.ViewModel {
-    private final StringUtil stringUtil = new StringUtil();
-    private final MutableLiveData<String> Anagram =
-            new MutableLiveData<>();
+    private final StringUtil stringUtil;
+    private final MutableLiveData<String> Anagram = new MutableLiveData<>();
+
+    public ViewModel() {
+        this.stringUtil = new StringUtil();
+    }
+
+    // Constructor for injecting StringUtil
+    public ViewModel(StringUtil stringUtil) {
+        this.stringUtil = stringUtil;
+    }
 
     public LiveData<String> getAnagram() {
         return Anagram;

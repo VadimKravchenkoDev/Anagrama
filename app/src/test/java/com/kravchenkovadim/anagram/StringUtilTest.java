@@ -2,49 +2,113 @@ package com.kravchenkovadim.anagram;
 
 import org.junit.Test;
 
+import java.util.Set;
+
 import static org.junit.Assert.*;
 
 public class StringUtilTest {
 
+    private final StringUtil stringUtil = new StringUtil();
+
     @Test
-    public void testMakeAnagram_reversesWords() {
-        // Arrange
-        StringUtil stringUtil = new StringUtil();
-        String inputSymbols = "abcd efgh";
-        String filterString = "b";
+    public void testMakeAnagramWithoutFilter() {
+        String input = "Foxminded cool 24/7";
+        String filter = "";
 
-        // Act
-        String result = stringUtil.makeAnagram(inputSymbols, filterString).toString();
+        String result = stringUtil.makeAnagram(input, filter);
 
-        // Assert
-        assertEquals("dbca hgfe", result);
+        assertEquals("dednimxoF looc 24/7", result);
     }
 
     @Test
-    public void testMakeAnagram_preservesFilterSymbols() {
-        // Arrange
-        StringUtil stringUtil = new StringUtil();
-        String inputSymbols = "abc def ghi";
-        String filterString = "b";
+    public void testMakeAnagramWithFilter() {
+        String input = "Foxminded cool 24/7";
+        String filter = "xl";
 
-        // Act
-        String result = stringUtil.makeAnagram(inputSymbols, filterString).toString();
+        String result = stringUtil.makeAnagram(input, filter);
 
-        // Assert
-        assertEquals("cba fed ihg", result);
+        assertEquals("dexdnimoF oocl 7/42", result);
     }
 
     @Test
-    public void testMakeAnagram_handlesEmptyInput() {
-        // Arrange
-        StringUtil stringUtil = new StringUtil();
-        String inputSymbols = "";
-        String filterString = "x";
+    public void testMakeAnagramWithSpecialSymbols() {
+        String input = "a1bcd efg!h";
+        String filter = "!";
 
-        // Act
-        String result = stringUtil.makeAnagram(inputSymbols, filterString).toString();
+        String result = stringUtil.makeAnagram(input, filter);
 
-        // Assert
-        assertEquals("", result);
+        assertEquals("dcb1a hgf!e", result);
+    }
+
+    @Test
+    public void testDoReverseWithoutFilter() {
+        String word = "a1bcd";
+        String filter = "";
+
+        StringBuilder result = stringUtil.doReverse(word, filter);
+
+        assertEquals("d1cba", result.toString());
+    }
+
+    @Test
+    public void testDoReverseWithFilter() {
+        String word = "a1bcd";
+        String filter = "1";
+
+        StringBuilder result = stringUtil.doReverse(word, filter);
+
+        assertEquals("d1cba", result.toString());
+    }
+
+    @Test
+    public void testDoReverseWithComplexFilter() {
+        String word = "a1bcd";
+        String filter = "1b";
+
+        StringBuilder result = stringUtil.doReverse(word, filter);
+
+        assertEquals("d1bca", result.toString());
+    }
+
+    @Test
+    public void testDoReverseWithEmptyWord() {
+        String word = "";
+        String filter = "1";
+
+        StringBuilder result = stringUtil.doReverse(word, filter);
+
+        assertEquals("", result.toString());
+    }
+
+    @Test
+    public void testDoReverseWithAllFiltered() {
+        String word = "12345";
+        String filter = "12345";
+
+        StringBuilder result = stringUtil.doReverse(word, filter);
+
+        assertEquals("12345", result.toString());
+    }
+
+    @Test
+    public void testDoReverseWithNoFilterMatch() {
+        String word = "abcdef";
+        String filter = "123";
+
+        StringBuilder result = stringUtil.doReverse(word, filter);
+
+        assertEquals("fedcba", result.toString());
+    }
+
+    @Test
+    public void testSymbolsConstant() {
+        Set<Character> symbolsSet = StringUtil.symbols.chars()
+                .mapToObj(c -> (char) c)
+                .collect(java.util.stream.Collectors.toSet());
+
+        assertTrue(symbolsSet.contains('!'));
+        assertTrue(symbolsSet.contains('@'));
+        assertTrue(symbolsSet.contains('9'));
+        assertFalse(symbolsSet.contains('a'));
     }
 }

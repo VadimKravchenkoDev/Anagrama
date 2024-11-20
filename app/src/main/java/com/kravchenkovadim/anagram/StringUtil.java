@@ -9,7 +9,7 @@ public class StringUtil {
 
     public String makeAnagram(String inputSymbols, String filterString) {
 
-        // We divide the input row into words
+        //divide the input row into words
         String[] words = inputSymbols.split("\\s+");
 
         return String.join(" ",
@@ -41,8 +41,8 @@ public class StringUtil {
 
         for (int i = word.length() - 1; i >= 0; i--) {
             boolean isFiltered = false;
-            // check the every symbols that is in the filter
 
+            // check the every symbols that is in the filter
             if (filterSet.contains(word.charAt(i))) {
                 filterString.setCharAt(i, word.charAt(i));
                 isFiltered = true;
@@ -53,7 +53,7 @@ public class StringUtil {
             }
         }
 
-// Add filtering symbols at the correct position
+        // Add filtering symbols at the correct position
         for (int i = 0; i < filterString.length(); i++) {
             char currentChar = filterString.charAt(i);
             if (currentChar != ' ') {
