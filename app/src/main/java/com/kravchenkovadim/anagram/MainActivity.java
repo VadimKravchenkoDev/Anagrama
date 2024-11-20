@@ -53,45 +53,10 @@ public class MainActivity extends AppCompatActivity {
         binding.ConvertButton.setOnClickListener(v -> {
             String inputSymbols = binding.inputTextLayout.getText().toString();
             String filterString = binding.filterTextLayout.getText().toString();
-
-            checkReadyToReverse(inputSymbols, filterString);
+            viewModel.insertAnagram(inputSymbols, filterString);
         });
         viewModel.getAnagram().
                 observe(this, anagramText -> binding.outputResult.setText(anagramText));
-    }
-
-    private void checkReadyToReverse(String inputSymbols, String filterString) {
-        boolean readyToReverse = true;
-        if (hasDuplicateCharacters(filterString)) {
-            binding.outputResult.setText(R.string.filter);
-            readyToReverse = false;
-        }
-        if (filterString.contains(" ")) {
-            binding.outputResult.setText(R.string.enter_symbols_error);
-            readyToReverse = false;
-        }
-        if (inputSymbols.isEmpty()) {
-            binding.outputResult.setText(R.string.enter_your_text);
-            readyToReverse = false;
-        }
-        if (filterString.isEmpty()) {
-            // add special symbols in filter
-            filterString += getString(R.string.symbolsDigits);
-        }
-        if (readyToReverse) {
-            viewModel.insertAnagram(inputSymbols, filterString);
-        }
-    }
-
-    private boolean hasDuplicateCharacters(String string) {
-        Set<Character> seen = new HashSet<>();
-        for (char ch : string.toCharArray()) {
-
-            if (!seen.add(ch)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     @Override

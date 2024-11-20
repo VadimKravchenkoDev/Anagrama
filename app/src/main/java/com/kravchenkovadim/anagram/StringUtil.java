@@ -5,8 +5,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class StringUtil {
+    public static final String symbols = "!@#$%^&*()_+-=[]{}|;:\"',.<>?/\\`~0123456789";
 
     public String makeAnagram(String inputSymbols, String filterString) {
+
         // We divide the input row into words
         String[] words = inputSymbols.split("\\s+");
 
@@ -23,14 +25,19 @@ public class StringUtil {
 
         //initialize the row to save the position of filtering symbols
         StringBuilder filterString = new StringBuilder(" ".repeat(word.length()));
-
+        Set<Character> filterSet = new HashSet<>();
+        for (char c : filter.toCharArray()) {
+            if (c != ' ') {
+                filterSet.add(c);
+            }
+        }
+        if (filterSet.contains(' ')){
+            filterSet.clear();
+        }
         for (int i = word.length() - 1; i >= 0; i--) {
             boolean isFiltered = false;
             // check the every symbols that is in the filter
-            Set<Character> filterSet = new HashSet<>();
-            for (char c : filter.toCharArray()) {
-                filterSet.add(c);
-            }
+
             if (filterSet.contains(word.charAt(i))) {
                 filterString.setCharAt(i, word.charAt(i));
                 isFiltered = true;
