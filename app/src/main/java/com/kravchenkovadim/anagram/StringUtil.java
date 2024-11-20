@@ -26,14 +26,19 @@ public class StringUtil {
         //initialize the row to save the position of filtering symbols
         StringBuilder filterString = new StringBuilder(" ".repeat(word.length()));
         Set<Character> filterSet = new HashSet<>();
-        for (char c : filter.toCharArray()) {
-            if (c != ' ') {
+        filter = filter.replaceAll("\\s", "");
+        if (filter.isEmpty()) {
+            // Use default symbols if filter is empty
+            for (char c : symbols.toCharArray()) {
+                filterSet.add(c);
+            }
+        } else {
+            // Add characters from the provided filter
+            for (char c : filter.toCharArray()) {
                 filterSet.add(c);
             }
         }
-        if (filterSet.contains(' ')){
-            filterSet.clear();
-        }
+
         for (int i = word.length() - 1; i >= 0; i--) {
             boolean isFiltered = false;
             // check the every symbols that is in the filter
@@ -51,7 +56,7 @@ public class StringUtil {
 // Add filtering symbols at the correct position
         for (int i = 0; i < filterString.length(); i++) {
             char currentChar = filterString.charAt(i);
-            if (currentChar != ' ' && filter.indexOf(filterString.charAt(i)) != -1) {
+            if (currentChar != ' ') {
                 result.insert(i, filterString.charAt(i));
             }
         }
