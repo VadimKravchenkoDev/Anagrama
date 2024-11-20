@@ -2,9 +2,11 @@ package com.kravchenkovadim.anagram;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Scroller;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.activity.EdgeToEdge;
@@ -40,14 +42,16 @@ public class MainActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
-
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         decorView.setSystemUiVisibility(uiOptions);
-
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.orange));
-
+        binding.outputResult.setMovementMethod(new ScrollingMovementMethod());
+        binding.inputTextLayout.setVerticalScrollBarEnabled(true);
+        binding.filterTextLayout.setVerticalScrollBarEnabled(true);
+        binding.inputTextLayout.setMaxLines(5);
+        binding.filterTextLayout.setMaxLines(5);
 
         viewModel = new ViewModelProvider(this).get(ViewModel.class);
         binding.ConvertButton.setOnClickListener(v -> {
