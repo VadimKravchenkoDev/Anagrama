@@ -37,16 +37,19 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        //add toolbar with title
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
+        //hide navigation
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         decorView.setSystemUiVisibility(uiOptions);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.orange));
+        //add scrollBars
         binding.outputResult.setMovementMethod(new ScrollingMovementMethod());
         binding.inputTextLayout.setVerticalScrollBarEnabled(true);
         binding.filterTextLayout.setVerticalScrollBarEnabled(true);
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         viewModel.getAnagram().
                 observe(this, anagramText -> binding.outputResult.setText(anagramText));
     }
-
+    //hide keyboard when touch screen
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
