@@ -9,7 +9,7 @@ public class StringUtil {
     public static final String symbols = "!@#$%^&*()_+-=[]{}|;:\"',.<>?/\\`~0123456789";
 
     public String makeAnagram(String inputSymbols, String filterString) {
-
+        // Regular expression to separate text into words and spaces
         Pattern pattern = Pattern.compile("\\S+|\\s+");
         Matcher matcher = pattern.matcher(inputSymbols);
 
