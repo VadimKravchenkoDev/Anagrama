@@ -20,7 +20,7 @@ public class StringUtil {
             if (part.trim().isEmpty()) {
                 result.append(part);
             } else {
-                result.append(new StringBuilder(part).reverse());
+                result.append(doReverse(part, filterString).toString());
             }
         }
 
