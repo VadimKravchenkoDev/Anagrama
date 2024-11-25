@@ -7,6 +7,5 @@
     <string name="convert">CONVERT</string>
     <string name="filter">Filter should contain only unique characters.</string>
     <string name="enter_your_text">Enter your text.</string>
-    <string name="symbolsDigits" translatable="false">!@#$%^&amp;*()_+-=[]{}|;:&quot;, .&lt;&gt;?\/\\`~0123456789</string>
     <string name="lines">5</string>
 </resources>
