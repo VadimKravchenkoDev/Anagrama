@@ -48,10 +48,7 @@ public class StringUtil {
             // check the every symbols that is in the filter
             if (filterSet.contains(word.charAt(i))) {
                 filterString.setCharAt(i, word.charAt(i));
-                isFiltered = true;
-            }
-            // Symbols that are not filterable can be added
-            if (!isFiltered) {
+            } else {
                 result.append(word.charAt(i));
             }
         }
@@ -60,7 +57,7 @@ public class StringUtil {
         for (int i = 0; i < filterString.length(); i++) {
             char currentChar = filterString.charAt(i);
             if (currentChar != ' ') {
-                result.insert(i, filterString.charAt(i));
+                result.insert(i, currentChar);
             }
         }
 

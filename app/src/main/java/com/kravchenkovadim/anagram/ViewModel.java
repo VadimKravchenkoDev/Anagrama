@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 public class ViewModel extends androidx.lifecycle.ViewModel {
+    public static final String message = "Enter your text!!!";
     private final StringUtil stringUtil;
     private final MutableLiveData<String> Anagram = new MutableLiveData<>();
 
@@ -21,6 +22,12 @@ public class ViewModel extends androidx.lifecycle.ViewModel {
     }
 
     public void insertAnagram(String inputSymbols, String filterString) {
-        Anagram.setValue(stringUtil.makeAnagram(inputSymbols, filterString).toString());
+        String result = stringUtil.makeAnagram(inputSymbols, filterString);
+        if(result.trim().isEmpty()){
+            Anagram.setValue(message);
+        } else {
+            Anagram.setValue(result);
+        }
+
     }
 }

@@ -13,4 +13,8 @@
     <dimen name="filter_width">250dp</dimen>
     <dimen name="button_width">0dp</dimen>
     <dimen name="input_text_size">14sp</dimen>
+    <dimen name="boxCornerRadiusBottomEnd">@dimen/cornerRadius</dimen>
+    <dimen name="boxCornerRadiusBottomStart">@dimen/cornerRadius</dimen>
+    <dimen name="boxCornerRadiusTopEnd">@dimen/cornerRadius</dimen>
+    <dimen name="boxCornerRadiusTopStart">@dimen/cornerRadius</dimen>
 </resources>
