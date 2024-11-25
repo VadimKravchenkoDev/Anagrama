@@ -30,19 +30,19 @@ public class StringUtil {
     //do reverse and leave filter symbols on starting place
     public StringBuilder doReverse(String word, String filter) {
         StringBuilder result = new StringBuilder();
-
+        String cleanedFilter = filter.replaceAll("\\s", "");
         //initialize the row to save the position of filtering symbols
         StringBuilder filterString = new StringBuilder(" ".repeat(word.length()));
         Set<Character> filterSet = new HashSet<>();
-        filter = filter.replaceAll("\\s", "");
-        if (filter.isEmpty()) {
+
+        if (cleanedFilter.isEmpty()) {
             // Use default symbols if filter is empty
             for (char c : symbols.toCharArray()) {
                 filterSet.add(c);
             }
         } else {
             // Add characters from the provided filter
-            for (char c : filter.toCharArray()) {
+            for (char c : cleanedFilter.toCharArray()) {
                 filterSet.add(c);
             }
         }
