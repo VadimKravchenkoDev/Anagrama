@@ -35,16 +35,11 @@ public class StringUtil {
         StringBuilder filterString = new StringBuilder(" ".repeat(word.length()));
         Set<Character> filterSet = new HashSet<>();
 
-        if (cleanedFilter.isEmpty()) {
-            // Use default symbols if filter is empty
-            for (char c : symbols.toCharArray()) {
-                filterSet.add(c);
-            }
-        } else {
-            // Add characters from the provided filter
-            for (char c : cleanedFilter.toCharArray()) {
-                filterSet.add(c);
-            }
+        if (filter.isEmpty()) {
+            cleanedFilter = symbols;
+        }
+        for (char c : cleanedFilter.toCharArray()) {
+            filterSet.add(c);
         }
 
         for (int i = word.length() - 1; i >= 0; i--) {
