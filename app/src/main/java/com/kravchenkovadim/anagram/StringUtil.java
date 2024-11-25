@@ -1,22 +1,30 @@
 package com.kravchenkovadim.anagram;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringUtil {
     public static final String symbols = "!@#$%^&*()_+-=[]{}|;:\"',.<>?/\\`~0123456789";
 
     public String makeAnagram(String inputSymbols, String filterString) {
 
-        //divide the input row into words
-        String[] words = inputSymbols.split("\\s+");
+        Pattern pattern = Pattern.compile("\\S+|\\s+");
+        Matcher matcher = pattern.matcher(inputSymbols);
 
-        return String.join(" ",
-                Arrays.stream(words)
-                        .map(word -> doReverse(word, filterString).toString())
-                        .toArray(String[]::new)
-        );
+        StringBuilder result = new StringBuilder();
+
+        while (matcher.find()) {
+            String part = matcher.group();
+            if (part.trim().isEmpty()) {
+                result.append(part);
+            } else {
+                result.append(new StringBuilder(part).reverse());
+            }
+        }
+
+        return result.toString();
     }
 
     //do reverse and leave filter symbols on starting place
