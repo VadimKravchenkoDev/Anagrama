@@ -51,10 +51,6 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.orange));
         //add scrollBars
         binding.outputResult.setMovementMethod(new ScrollingMovementMethod());
-        binding.inputTextLayout.setVerticalScrollBarEnabled(true);
-        binding.filterTextLayout.setVerticalScrollBarEnabled(true);
-        binding.inputTextLayout.setMaxLines(5);
-        binding.filterTextLayout.setMaxLines(5);
 
         viewModel = new ViewModelProvider(this).get(ViewModel.class);
         binding.ConvertButton.setOnClickListener(v -> {

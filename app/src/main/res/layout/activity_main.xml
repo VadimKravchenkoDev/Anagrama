@@ -49,7 +49,6 @@
         style="@style/TextInputLayout"
         android:layout_marginTop="90dp"
         android:hint="@string/enter_text"
-        android:scrollbars="vertical"
         app:boxStrokeColor="@color/black"
         app:hintTextAppearance="@style/HintTextStyle"
         app:boxBackgroundMode="outline"
@@ -65,6 +64,7 @@
             android:hint=""
             android:inputType="textMultiLine"
             android:scrollbars="vertical"
+            android:maxLines="@string/lines"
             android:textSize="@dimen/input_text_size" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,7 +73,6 @@
         style="@style/TextInputLayout"
         android:layout_marginTop="32dp"
         android:hint="@string/enter_symbols"
-        android:scrollbars="vertical"
         app:boxBackgroundMode="outline"
         app:boxStrokeColor="@color/black"
         app:hintTextAppearance="@style/HintTextStyle"
@@ -89,6 +88,7 @@
             android:hint=""
             android:inputType="textMultiLine"
             android:scrollbars="vertical"
+            android:maxLines="@string/lines"
             android:textSize="@dimen/input_text_size" />
     </com.google.android.material.textfield.TextInputLayout>
 

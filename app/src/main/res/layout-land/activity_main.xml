@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:scrollbars="vertical"
     android:background="@color/white">
 
     <androidx.appcompat.widget.Toolbar
@@ -49,8 +50,6 @@
         style="@style/TextInputLayout"
         android:layout_marginTop="90dp"
         android:hint="@string/enter_text"
-        android:maxLines="@string/lines"
-        android:scrollbars="vertical"
         app:boxStrokeColor="@color/black"
         app:boxBackgroundMode="outline"
         app:hintTextAppearance="@style/HintTextStyle"
@@ -65,6 +64,7 @@
             android:gravity="start|top"
             android:hint=""
             android:inputType="textMultiLine"
+            android:maxLines="@string/lines"
             android:scrollbars="vertical"
             android:textSize="@dimen/input_text_size" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -74,8 +74,6 @@
         style="@style/TextInputLayout"
         android:layout_marginTop="32dp"
         android:hint="@string/enter_symbols"
-        android:maxLines="@string/lines"
-        android:scrollbars="vertical"
         app:boxStrokeColor="@color/black"
         app:boxBackgroundMode="outline"
         app:hintTextAppearance="@style/HintTextStyle"
@@ -91,6 +89,7 @@
             android:hint=""
             android:inputType="textMultiLine"
             android:scrollbars="vertical"
+            android:maxLines="@string/lines"
             android:textSize="@dimen/input_text_size" />
     </com.google.android.material.textfield.TextInputLayout>
 
